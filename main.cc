@@ -3,6 +3,7 @@
 #include "Utilisateur.hh"
 #include "Eau.hh"
 #include "Gourde.hh"
+#include "Bouteille.hh"
 
 int main()
 {
@@ -16,22 +17,22 @@ int main()
 
   // Gourde gourde1(1,"miniral",3,20);
   // gourde1.presentation();
-  std::cout << "---------------------------------------------" << std::endl;
-  Eau eau1("Braunstein","Cécile",2,0,"minéral");
-  Eau eau2(eau1);
-  eau1.print_eau();
-  eau1.presentation();
-  eau2.print_eau();
-  std::cout << "---------------------------------------------" << std::endl;
+  // std::cout << "---------------------------------------------" << std::endl;
+  // Eau eau1("Braunstein","Cécile",2,0,"minéral");
+  // Eau eau2(eau1);
+  // eau1.print_eau();
+  // eau1.presentation();
+  // eau2.print_eau();
+  // std::cout << "---------------------------------------------" << std::endl;
+  // //
   //
-
-  // gourde1.print_resultat();
-  // gourde1.calcul(pg);
-  // gourde1.print_resultat();
-
-  Eau eau11("Braunstein","Cécile",2);
-  eau11.presentation();
-  eau11.print_eau();
+  // // gourde1.print_resultat();
+  // // gourde1.calcul(pg);
+  // // gourde1.print_resultat();
+  //
+  // Eau eau11("Braunstein","Cécile",2);
+  // eau11.presentation();
+  // eau11.print_eau();
 
   // std::cout << "---------------------------------------------" << std::endl;
   //
@@ -44,6 +45,12 @@ int main()
 
   Utilisateur user;
   Eau eau8(user);
+  Gourde gourde1(eau8);
+  gourde1.calcul();
+
+  Bouteille bottle1(eau8);
+  bottle1.calcul();
+  bottle1.print_resultat();
   // if (user.get_recherche() == 2)
   // {
   //   Gourde gourde1(1,"miniral",3,20);

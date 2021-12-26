@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 float eau_robinet = 0.003;
-std::size_t nb_annees = 10;
 
 // Gourde::Gourde():Eau()
 // {
@@ -20,13 +19,21 @@ std::size_t nb_annees = 10;
 //      resultat[i] = 0;
 // }
 
-
-void Gourde::calcul(Eau &e)
+Gourde::Gourde(const Eau &e):Eau(e)
 {
-  std::cout << "litre : " << e._litre_j  << '\n';
+  resultat = new float [nb_annees];
+  for(std::size_t i = 0; i < nb_annees; i++)
+     resultat[i] = 0;
+
+}
+
+
+void Gourde::calcul()
+{
+  std::cout << "litre : " << _litre_j  << '\n';
   for(std::size_t i = 0; i < nb_annees; i++)
   {
-    resultat[i] = e._litre_j*365.25*eau_robinet;
+    resultat[i] = _litre_j*365.25*eau_robinet;
     if (i != 0)
       resultat[i] = resultat[i] + resultat[i-1];
 

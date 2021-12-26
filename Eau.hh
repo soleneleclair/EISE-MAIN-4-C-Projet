@@ -6,6 +6,7 @@
 class Eau : public Utilisateur
 {
   public :
+  std::size_t nb_annees = 10;
     std::size_t _litre_j;
     Eau();
     Eau(const Utilisateur &u);
