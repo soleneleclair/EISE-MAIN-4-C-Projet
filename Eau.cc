@@ -23,7 +23,7 @@ Eau::Eau(std::string nom, std::string prenom, int recherche):Utilisateur(nom,pre
 	_type = "type2";
 }
 
-void Eau::print_eau() const
+void Eau::print() const
 {
 	std::cout << "Vous buvez "  << _litre_j <<" litres d'eau par jours";
   std::cout << "\nLe type " << _type << std::endl;

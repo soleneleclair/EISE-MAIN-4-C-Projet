@@ -23,28 +23,24 @@ Gourde::Gourde(const Eau &e):Eau(e)
 {
   resultat = new float [nb_annees];
   for(std::size_t i = 0; i < nb_annees; i++)
-     resultat[i] = 0;
-
+    resultat[i] = 0;
 }
 
 
 void Gourde::calcul()
 {
-  std::cout << "litre : " << _litre_j  << '\n';
-  for(std::size_t i = 0; i < nb_annees; i++)
+  for(std::size_t i = 0; i < nb_annees; i++) //variation dans les années (0 = la premiere année d'utilisation)
   {
-    resultat[i] = _litre_j*365.25*eau_robinet;
+    resultat[i] = _litre_j*365.25*eau_robinet; // prix de l'eau du robinet pour une année
     if (i != 0)
-      resultat[i] = resultat[i] + resultat[i-1];
+      resultat[i] = resultat[i] + resultat[i-1]; // On additionne avec l'année précédente
 
     if (i%_duree_de_vie == 0) //Il faut renouveler la bouteille
-      resultat[i] = _prix_achat + resultat[i];
-
-    std::cout << "année : " << i << " --> "<<resultat[i] << std::endl;
+      resultat[i] = _prix_achat + resultat[i]; // on ajoute au prix de l'eau à l'année le prix d'achat d'une bouteille
   }
 }
 
-void Gourde::print_resultat(){
+void Gourde::print(){
   for(std::size_t i = 0; i < nb_annees; i++)
-    std::cout << "L'année " << i << "il a dépensé : " << resultat[i] << '\n';
+    std::cout << "L'année " << i << "il a dépensé : " << resultat[i] << " € \n";
 }
