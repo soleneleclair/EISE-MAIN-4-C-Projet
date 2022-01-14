@@ -41,14 +41,14 @@ int main()
 
   Bouteille bottle1(eau8);
   std::cout << "---------------------------------------------" << std::endl;
-  bottle1.print();
+  bottle1.print();*/
 
   // if (user.get_recherche() == 2)
   // {
   //   Gourde gourde1(1,"miniral",3,20);
   // }
 
-  Utilisateur user1("Braunstein","Cécile",2);
+  /*Utilisateur user1("Braunstein","Cécile",2);
   Eau eau1(user1,1,"type1");
   Gourde gourde2(eau1);
   gourde2.calcul();
@@ -56,9 +56,13 @@ int main()
     
     Utilisateur user2("Margaux","Dufresne",1);
     Protection protec(user2);
-    protec.print();
+    //protec.print_protec();
+    Cup cup1(protec);
+    cup1.calcul_prix();
+    cup1.print();
     //Jetable jet1(protec);
     //jet1.calcul_prix();
+    //jet1.print();
    
 	return 0;
 }

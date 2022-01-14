@@ -50,7 +50,7 @@ void Bouteille::conso_CO2()
 }
 
 //Affichage
-void Bouteille::print(){
+void Bouteille::print() const{
   conso_CO2();
   calcul_prix();
   std::cout << "\t \t Résultat minéral : " << '\n';

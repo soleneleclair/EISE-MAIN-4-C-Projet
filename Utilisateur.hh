@@ -13,7 +13,7 @@ public:
   int get_recherche() const {return _recherche;}
   void presentation();
 
-private:
+
   std::string _nom;
   std::string _prenom;
   int _recherche;

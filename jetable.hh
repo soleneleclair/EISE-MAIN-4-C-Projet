@@ -25,9 +25,9 @@ class Jetable : public Protection
 private:
     
     //int _qtecycle; techniquement deja dans protection
-    float _duree = 24/_nbsprotjour ; // duree en heure
+    //float _duree = 24/_nbsprotjour ; // duree en heure
     float _prixuni = 0.25; //prix moyen d'une serviette hygienique
-    float _prixcycle = (0.25*_nbsprotjour)*5;// si on estime qu'un cycle dure 5 jours
+    float _prixcycle = (_prixuni*_nbsprotjour)*5;// si on estime qu'un cycle dure 5 jours
     float _prixan = _prixcycle * nb_cycle;
     float * res_an;
     float * res_cycle;

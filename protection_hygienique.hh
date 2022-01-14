@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 #include "Utilisateur.hh"
+
+
 class Protection : public Utilisateur
 {
   public :
@@ -12,8 +14,8 @@ class Protection : public Utilisateur
     
     Protection(); // constructeur par défaut
     Protection(const Utilisateur &u);
-    Protection(const Utilisateur &u, std::size_t _flux,std::size_t _nbsprotjour, std::size_t _age):Utilisateur(nom,prenom,recherche),_flux(flux),_nbsprotjour(nbsprotjour),_age(age){};
-    Protection(std::string nom, std::string prenom, int recherche);
+    Protection(const Utilisateur &u, std::size_t _flux,std::size_t _nbsprotjour, std::size_t _age):Utilisateur(u),_flux(_flux),_nbsprotjour(_nbsprotjour){};
+    Protection(std::string _nom, std::string _prenom, int _recherche);
     Protection(const Protection &p):Utilisateur(p),_flux(p._flux),_nbsprotjour(p._nbsprotjour),_age(p._age){};
     
     //Fonction

@@ -29,7 +29,6 @@ private:
     int _prixuni = 60; //prix moyen pour 6 serviette lavable
     float _prixan = _prixuni/_duree;
     float _prixcycle = _prixan/nb_cycle;// si on estime qu'un cycle dure 5 jours
-    
     float * res_an;
     float * res_cycle;
 };

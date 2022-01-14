@@ -19,7 +19,7 @@ class Bouteille : public Eau
     //Fonctions
     void calcul_prix();//Fonction qui calcul l'argent dépensé en utilisant des bouteilles à usage unique
     void conso_CO2();
-    void print(); //Affichage
+    void print() const; //Affichage
 
   private:
     std::map<std::string, float* > resultat;
