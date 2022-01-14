@@ -3,9 +3,14 @@
 #include <map>
 
 #include "Utilisateur.hh"
-#include "Eau.hh"
-#include "Gourde.hh"
-#include "Bouteille.hh"
+//#include "Eau.hh"
+//#include "Gourde.hh"
+//#include "Bouteille.hh"
+#include "protection_hygienique.hh"
+#include "lavable.hh"
+#include "cup.hh"
+#include "jetable.hh"
+
 
 int main()
 {
@@ -27,7 +32,8 @@ int main()
   //eau12.calcul();
 
 
-  Utilisateur user("LEclair","Solène",2);
+  /*Utilisateur user("LEclair","Solène",2);
+
   Eau eau8(user);
   eau8.print();
   Gourde gourde1(eau8);
@@ -46,6 +52,13 @@ int main()
   Eau eau1(user1,1,"type1");
   Gourde gourde2(eau1);
   gourde2.calcul();
-  gourde2.print();
+  gourde2.print();*/
+    
+    Utilisateur user2("Margaux","Dufresne",1);
+    Protection protec(user2);
+    protec.print();
+    //Jetable jet1(protec);
+    //jet1.calcul_prix();
+   
 	return 0;
 }
