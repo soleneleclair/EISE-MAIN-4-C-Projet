@@ -13,7 +13,7 @@ class Gourde : public Eau
     ~Gourde(){delete[] resultat;} // Destructeur
 
     void calcul();
-    void print() const; //Affichage du prix chaque année
+    void print(); //Affichage du prix chaque année
 
     //Getter
     float get_resultat_annee(int i){return resultat[i];}

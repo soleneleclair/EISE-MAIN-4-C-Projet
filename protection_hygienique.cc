@@ -8,7 +8,7 @@ Protection::Protection():Utilisateur()
   std::cin >> _age;
 	std::cout << "Notez votre flux de 0 à 5 (0 = très léger ; 5 = très abondant)" << std::endl;
 	std::cin >> _flux;
-  std::cout << "Combien de protections hygiéniques utilisez vous par jour" << std::endl;
+  std::cout << "Combien de protections hygiéniques (serviettes ou tampon) utilisez vous par jour" << std::endl;
   std::cin >> _nbsprotjour;
 }
 

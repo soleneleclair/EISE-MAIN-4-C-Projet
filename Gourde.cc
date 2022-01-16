@@ -40,7 +40,7 @@ void Gourde::calcul()
   }
 }
 
-void Gourde::print() const{
+void Gourde::print(){
   for(std::size_t i = 0; i < nb_annees; i++)
     std::cout << "L'année " << i << "il a dépensé : " << resultat[i] << " € \n";
 }

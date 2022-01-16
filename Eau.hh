@@ -21,7 +21,7 @@ class Eau : public Utilisateur
     Eau(const Eau &e):Utilisateur(e),_litre_j(e._litre_j),_type(e._type){}; //Constructeur par copie
 
     //Fonction
-    virtual void print() const; //Affichage
+    void print() const; //Affichage
 
     //Getter
     std::size_t get_litre(){return _litre_j;}

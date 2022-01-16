@@ -57,12 +57,15 @@ int main()
     Utilisateur user2("Margaux","Dufresne",1);
     Protection protec(user2);
     //protec.print_protec();
+//    Lavable lav1(protec);
+//    lav1.calcul_prix();
+//    lav1.print();
     Cup cup1(protec);
     cup1.calcul_prix();
     cup1.print();
-    //Jetable jet1(protec);
-    //jet1.calcul_prix();
-    //jet1.print();
+//    Jetable jet1(protec);
+//    jet1.calcul_prix();
+//    jet1.print();
    
 	return 0;
 }
