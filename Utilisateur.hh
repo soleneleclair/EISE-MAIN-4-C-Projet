@@ -18,7 +18,7 @@ public:
   int get_recherche() const {return _recherche;}
 
   void presentation();
-  void presentation_SDL(SDL_Renderer *renderer,SDL_Surface *surface,SDL_Texture *Message, TTF_Font *font);
+  //void presentation_SDL(SDL_Renderer *renderer,SDL_Surface *surface,SDL_Texture *Message, TTF_Font *font);
 
 private:
 

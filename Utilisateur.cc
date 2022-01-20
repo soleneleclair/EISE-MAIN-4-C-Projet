@@ -26,18 +26,18 @@ void Utilisateur::presentation()
 
 }
 
-void Utilisateur::presentation_SDL(SDL_Renderer *renderer,SDL_Surface *surface_titre, SDL_Texture *Message, TTF_Font *police)
-{
-	surface_titre = TTF_RenderText_Solid(police, _nom.c_str(), noir);
-	Message = SDL_CreateTextureFromSurface(renderer, surface_titre);
-	SDL_Rect Titre_rect = { 500, 230,100,50 };
-	SDL_RenderCopy(renderer, Message, NULL, &Titre_rect);
-
-	// surface_titre = TTF_RenderText_Solid(police, _prenom.c_str(), noir);
-	// Message = SDL_CreateTextureFromSurface(renderer, surface_titre);
-	// SDL_Rect prenom_rect = { 200, 230,100,50 };
-	// SDL_RenderCopy(renderer, Message, NULL, &prenom_rect);
-}
+// void Utilisateur::presentation_SDL(SDL_Renderer *renderer,SDL_Surface *surface_titre, SDL_Texture *Message, TTF_Font *police)
+// {
+// 	surface_titre = TTF_RenderText_Solid(police, _nom.c_str(), noir);
+// 	Message = SDL_CreateTextureFromSurface(renderer, surface_titre);
+// 	SDL_Rect Titre_rect = { 500, 230,100,50 };
+// 	SDL_RenderCopy(renderer, Message, NULL, &Titre_rect);
+//
+// 	// surface_titre = TTF_RenderText_Solid(police, _prenom.c_str(), noir);
+// 	// Message = SDL_CreateTextureFromSurface(renderer, surface_titre);
+// 	// SDL_Rect prenom_rect = { 200, 230,100,50 };
+// 	// SDL_RenderCopy(renderer, Message, NULL, &prenom_rect);
+// }
 
 // void SDL_accueil(SDL_Renderer *renderer,SDL_Texture *Message,SDL_Surface *surface_titre, TTF_Font *font)
 // {
@@ -51,12 +51,12 @@ void Utilisateur::presentation_SDL(SDL_Renderer *renderer,SDL_Surface *surface_t
 void affichage()
 {
 	Utilisateur user("Leclair","Solene",2);
-	char *text;
+	//char *text;
 	SDL_Color noir = {0, 0, 0};
   int mx,my;
 	int goGourde = 0;
 	int goProtec = 0;
-	int nom_enabled=1;
+	//int nom_enabled=1;
   SDL_Init(SDL_INIT_VIDEO);
   TTF_Init();
 	SDL_StartTextInput();
@@ -68,10 +68,8 @@ void affichage()
   SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
   int quit = 0;
   SDL_Event event;
-  SDL_Surface *graphique, *surface_titre, *surface_gourde, *surface_input;
-	SDL_Surface *surface_valide;
-	SDL_Texture *texture_graphique, *Message, *Message2, *Message3, *texture_gourde, *texture_protection;
-	SDL_Texture *Message_user, *texture_valide;
+  SDL_Surface *graphique, *surface_titre, *surface_gourde;
+	SDL_Texture *texture_graphique, *Message, *Message2, *texture_gourde, *texture_protection;
 	SDL_Color fond = {55, 200, 55, 3};
 
 	TTF_Font *police = TTF_OpenFont("Roboto-Medium.ttf", 65);
@@ -80,9 +78,6 @@ void affichage()
 
   graphique = IMG_Load("planetB.jpg");
   texture_graphique = SDL_CreateTextureFromSurface(renderer,graphique);
-
-	surface_valide = IMG_Load("Images/valide.png");
-  texture_valide = SDL_CreateTextureFromSurface(renderer,surface_valide);
 
   surface_gourde = IMG_Load("plan9.bmp");
 	texture_gourde = SDL_CreateTextureFromSurface(renderer,surface_gourde);
@@ -107,7 +102,7 @@ void affichage()
         				//printf("mx=%d my=%d\n",mx,my);
     				    break;
 						/*case SDL_TEXTINPUT:
-                /* Add new text onto the end of our text
+                // Add new text onto the end of our text
 								strcat(text, event.text.text);
 								//if (nom_enabled == 1){
 								printf("%s\n",text);
@@ -147,19 +142,15 @@ void affichage()
     SDL_Rect image_rect = { 370, 150, 250, 165 };
     SDL_RenderCopy(renderer, texture_graphique, NULL, &image_rect);
 
-    //SDL_RenderCopy(renderer, texture_valide, NULL, &valide_rect);
-
 		SDL_RenderCopy(renderer, texture_gourde, NULL, &gourde_rect);
     SDL_RenderCopy(renderer, texture_protection, NULL, &protection_rect);
-
-    SDL_accueil(renderer, Message2, surface_titre, police);
 
     SDL_Rect Titre_rect = { 350, 30,300,80 };
     SDL_RenderCopy(renderer, Message, NULL, &Titre_rect);
 
-		SDL_Rect input_rect = { 350, 130,100,30 };
-		SDL_RenderCopy(renderer, Message3, NULL, &input_rect);
-		user.presentation_SDL(renderer,surface_titre, Message_user,police);
+		// SDL_Rect input_rect = { 350, 130,100,30 };
+		// SDL_RenderCopy(renderer, Message3, NULL, &input_rect);
+		//user.presentation_SDL(renderer,surface_titre, Message_user,police);
 
 		if (goGourde==1)// || goProtec == 1)
 		{
