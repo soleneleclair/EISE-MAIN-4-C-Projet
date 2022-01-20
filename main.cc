@@ -17,17 +17,12 @@
 
 int main()
 {
-  //Utilisateur user("Leclair","Solene",2);
-  Eau eau("Braunstein","Cécile",2,1,"type1");
-  Bouteille Bottle(eau);
-  Bouteille Bottle1(Bottle);
-  std::cout << "/* message */" << Bottle1.get_resultat_annee(0) << '\n';
-  affichage();
 
+  Utilisateur user;
+  user.presentation();
   std::cout << "---------------------------------------------" << std::endl;
 
-	Utilisateur user;
-	user.presentation();
+  affichage();
 	if (user.get_recherche()==2)
 	{
 		Eau water(user);

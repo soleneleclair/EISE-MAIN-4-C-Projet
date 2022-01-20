@@ -16,13 +16,13 @@ Utilisateur::Utilisateur()
 
 void Utilisateur::presentation()
 {
-	std::cout << "\t \t Voici la personne étudiée : " << '\n';
+	std::cout << "\n \t \t Voici la personne étudiée : " << '\n';
 	std::cout << "Nom : " << _nom << std::endl;
   std::cout << "Prénom : " << _prenom << std::endl;
 	if (_recherche == 1)
-		std::cout << "La recherche porte sur les protections hygiéniques. " << _recherche << std::endl;
+		std::cout << "La recherche porte sur les protections hygiéniques. " << _recherche << std::endl << std::endl;
 	else
-		std::cout << "La recherche porte sur les gourdes. " << std::endl;
+		std::cout << "La recherche porte sur les gourdes. " << std::endl << std::endl;
 
 }
 

@@ -30,7 +30,7 @@ TEST_CASE("2:Eau")
   Utilisateur user1("Braunstein","Cécile",2);
   Eau eau1(user1,1,"type1");
   Eau eau2(eau1);
-  Eau eau3("Braunstein","Cécile",2,1,"type1");
+  Eau eau3("Braunstein","Cécile",2,1);
   REQUIRE(eau1.get_nom() == "Braunstein");
   REQUIRE(eau2.get_litre() == eau3.get_litre());
   REQUIRE(eau3.get_litre() == 1);
@@ -38,7 +38,7 @@ TEST_CASE("2:Eau")
 
 TEST_CASE("3:Gourde")
 {
-  Eau eau("Braunstein","Cécile",2,1,"type1");
+  Eau eau("Braunstein","Cécile",2,1);
   Gourde Gourde1(eau);
   REQUIRE(Gourde1.get_resultat_annee(1) == 0);
   REQUIRE(Gourde1.get_nom() == "Braunstein");
@@ -46,7 +46,7 @@ TEST_CASE("3:Gourde")
 
 TEST_CASE("4:Bouteille")
 {
-  Eau eau("Braunstein","Cécile",2,1,"type1");
+  Eau eau("Braunstein","Cécile",2,1);
   Bouteille Bottle(eau);
   REQUIRE(Bottle.get_resultat_annee(0,"CO2") == 0);
   REQUIRE(Bottle.get_litre()==1);
