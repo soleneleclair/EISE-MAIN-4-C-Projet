@@ -10,7 +10,6 @@ class Eau : public Utilisateur
     std::size_t nb_annees = 10;
 
     //Attribut public
-    std::size_t _litre_j; //Nombre de litre bu par l'utilisateur en une journée
 
     //Constructeurs
     Eau(); //Constructeur par défault
@@ -27,5 +26,6 @@ class Eau : public Utilisateur
     std::size_t get_litre(){return _litre_j;}
 
   private:
+    std::size_t _litre_j; //Nombre de litre bu par l'utilisateur en une journée
     std::string _type;
 };

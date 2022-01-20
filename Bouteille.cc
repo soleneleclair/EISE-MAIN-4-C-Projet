@@ -30,8 +30,8 @@ void Bouteille::calcul_prix() //Fonction qui calcul l'argent dépensé en utilis
 {
   for(std::size_t i = 0; i < nb_annees; i++) //variation dans les années (0 = la premiere année d'utilisation)
   {
-    resultat["source"][i] = _litre_j*365.25*eau_source; //calcul du prix des bouteilles d'eau de source pour une année en fonction des litres d'eau bu par l'utilisateur
-    resultat["mineral"][i] = _litre_j*365.25*eau_minerale;
+    resultat["source"][i] = get_litre()*365.25*eau_source; //calcul du prix des bouteilles d'eau de source pour une année en fonction des litres d'eau bu par l'utilisateur
+    resultat["mineral"][i] = get_litre()*365.25*eau_minerale;
     if (i != 0){
       resultat["source"][i] += resultat["source"][i-1];//On additionne avec le précedent pour avoir le prix en fonction des années
       resultat["mineral"][i] += resultat["mineral"][i-1];
@@ -43,7 +43,7 @@ void Bouteille::conso_CO2()
 {
   for(std::size_t i = 0; i < nb_annees; i++) // on varie par années
   {
-    resultat["CO2"][i] = _litre_j*365.25*CO2_bouteille; //Calcul de la consommation de CO2 d'une bouteille en plastique
+    resultat["CO2"][i] = get_litre()*365.25*CO2_bouteille; //Calcul de la consommation de CO2 d'une bouteille en plastique
     if (i != 0)
       resultat["CO2"][i] = resultat["CO2"][i] + resultat["CO2"][i-1]; //conso en fonction des années
   }
@@ -59,7 +59,7 @@ void Bouteille::print(){
   std::cout << "\t \t Résultat source : " << '\n';
   for(std::size_t i = 0; i < nb_annees; i++)
     std::cout << "L'année " << i << ", il a dépensé : " << resultat["source"][i] << " €\n";
-  std::cout << "\t \t En CO2 : " << '\n';
+  std::cout << "\t \t Une bouteille plastique consomme comme C02 : " << '\n';
   for(std::size_t i = 0; i < nb_annees; i++)
-    std::cout << "L'année " << i << ", il a dépensé : " << resultat["CO2"][i] << " kg\n";
+    std::cout << "L'année " << i << " : " << resultat["CO2"][i] << " kg\n";
 }

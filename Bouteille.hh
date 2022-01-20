@@ -10,7 +10,7 @@ class Bouteille : public Eau
     //Constructeurs
     Bouteille(const Eau &e);
     Bouteille(const Bouteille &g):Eau(g),resultat(g.resultat){};
-
+    
     ~Bouteille();// Destructeur
 
     //Getter
