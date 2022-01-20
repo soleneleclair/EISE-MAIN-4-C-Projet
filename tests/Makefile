@@ -1,12 +1,13 @@
 CC=g++
 CCFLAGS= -Wall -Werror -std=c++11 -g
+LIBFLAGS= -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 SRC= $(wildcard ../*.cc)
 OBJ= $(SRC:.cc=.o)
 TST= $(wildcard *.cc)
 OBJ_TEST = $(filter-out ../main.o, $(OBJ)) $(TST:.cc=.o)
 
-testcase : $(OBJ_TEST) 
-	$(CC) $(CCFLAGS)  -o $@ $^
+testcase : $(OBJ_TEST)
+	$(CC) $(CCFLAGS)  -o $@ $^ $(LIBFLAGS)
 
 %.o: %.cc
 	$(CC) $(CCFLAGS) -I../ -o $@ -c $<
