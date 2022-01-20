@@ -9,15 +9,15 @@
 #include "Eau.hh"
 #include "Gourde.hh"
 #include "Bouteille.hh"
-//SDL_Color couleurBlanche = {250,250,250};
-
+#include "protection_hygienique.hh"
+#include "lavable.hh"
+#include "cup.hh"
+#include "jetable.hh"
 
 
 int main()
 {
-
-
-  //affichage();
+  affichage();
 
   std::cout << "---------------------------------------------" << std::endl;
 
@@ -34,7 +34,6 @@ int main()
 		bottle.print();
 		//~water();
 	}
-
 
   std::cout << "---------------------------------------------" << std::endl;
 

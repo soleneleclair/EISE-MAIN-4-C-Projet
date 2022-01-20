@@ -1,4 +1,4 @@
-#include "Utilisateur.hh"
+ #include "Utilisateur.hh"
 #include <string>
 #include <iostream>
 SDL_Color couleurBlanche = {250,250,250};
@@ -39,14 +39,14 @@ void Utilisateur::presentation_SDL(SDL_Renderer *renderer,SDL_Surface *surface_t
 	// SDL_RenderCopy(renderer, Message, NULL, &prenom_rect);
 }
 
-void SDL_accueil(SDL_Renderer *renderer,SDL_Texture *Message,SDL_Surface *surface_titre, TTF_Font *font)
-{
-	SDL_Color noir = {0, 0, 0};
-	surface_titre = TTF_RenderText_Solid(font, "bleu", noir);
-  Message = SDL_CreateTextureFromSurface(renderer, surface_titre);
-	SDL_Rect Titre_rect = { 500, 30,300,80 };
-	SDL_RenderCopy(renderer, Message, NULL, &Titre_rect);
-}
+// void SDL_accueil(SDL_Renderer *renderer,SDL_Texture *Message,SDL_Surface *surface_titre, TTF_Font *font)
+// {
+// 	SDL_Color noir = {0, 0, 0};
+// 	surface_titre = TTF_RenderText_Solid(font, "bleu", noir);
+//   Message = SDL_CreateTextureFromSurface(renderer, surface_titre);
+// 	SDL_Rect Titre_rect = { 500, 30,300,80 };
+// 	SDL_RenderCopy(renderer, Message, NULL, &Titre_rect);
+// }
 
 void affichage()
 {
@@ -106,8 +106,8 @@ void affichage()
         				SDL_GetMouseState( &mx, &my );
         				//printf("mx=%d my=%d\n",mx,my);
     				    break;
-						case SDL_TEXTINPUT:
-                /* Add new text onto the end of our text */
+						/*case SDL_TEXTINPUT:
+                /* Add new text onto the end of our text
 								strcat(text, event.text.text);
 								//if (nom_enabled == 1){
 								printf("%s\n",text);
@@ -115,6 +115,7 @@ void affichage()
 								Message3 = SDL_CreateTextureFromSurface(renderer, surface_input); //converti la surface en texture
 								//}
                 break;
+                */
       }
     }
 		/* Etape 2: METTRE A JOUR l'ETAT DE L'APPLICATION GRAPHIQUE */
@@ -162,16 +163,17 @@ void affichage()
 
 		if (goGourde==1)// || goProtec == 1)
 		{
-			//user._recherche = 1;
-
 			SDL_SetRenderDrawColor(renderer, fond.r, fond.g, fond.b, fond.a);
 			SDL_RenderFillRect(renderer, &rect);
 			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-
-     	SDL_RenderDrawLine(renderer, 750,0,750+250,0+165);
+		}
+    if (goProtec == 1)
+		{
+			SDL_SetRenderDrawColor(renderer, couleurBlanche.r, couleurBlanche.g, couleurBlanche.b, couleurBlanche.a);
+			SDL_RenderFillRect(renderer, &rect);
+			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
 		}
-
 
     SDL_RenderPresent(renderer);
 

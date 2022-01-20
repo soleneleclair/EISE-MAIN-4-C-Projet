@@ -1,0 +1,11 @@
+Bouteille.o: Bouteille.cc Bouteille.hh Eau.hh Utilisateur.hh
+Eau.o: Eau.cc Eau.hh Utilisateur.hh
+Gourde.o: Gourde.cc Gourde.hh Eau.hh Utilisateur.hh
+Utilisateur.o: Utilisateur.cc Utilisateur.hh
+cup.o: cup.cc cup.hh protection_hygienique.hh Utilisateur.hh
+jetable.o: jetable.cc jetable.hh protection_hygienique.hh Utilisateur.hh
+lavable.o: lavable.cc lavable.hh protection_hygienique.hh Utilisateur.hh
+main.o: main.cc Utilisateur.hh Eau.hh Gourde.hh Bouteille.hh \
+  protection_hygienique.hh lavable.hh cup.hh jetable.hh
+protection_hygienique.o: protection_hygienique.cc \
+  protection_hygienique.hh Utilisateur.hh
