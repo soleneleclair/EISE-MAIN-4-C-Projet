@@ -24,7 +24,7 @@ void Jetable::calcul_prix(){
         if (i != 0)
         {
             res_an[i] = res_an[i] + res_an[i-1]; // On additionne avec l'année précédente
-        
+
         }
     }
     for(std::size_t i = 0; i < res_cycle.size(); i++)
@@ -38,15 +38,13 @@ void Jetable::calcul_prix(){
 
 }
 void Jetable::print() const{
-    
+  std::cout << "En utilisant que des protections jetables : "<< std::endl;
+
     for(std::size_t i = 0; i < nb_cycle; i++){
-        std::cout << "En utilisant que des protections jetables : \nAu cycle " << i << " de la première année vous aurez dépensé : " << res_cycle[i] << " € \n";
+        std::cout << "\nAu cycle " << i << " de la première année vous aurez dépensé : " << res_cycle[i] << " € \n";
     }
-    
+
     for(std::size_t i = 0; i < nb_annees; i++){
-        std::cout << "En utilisant que des protections jetables : \nL'année " << i << " vous aurez dépensé : " << res_an[i] << " € en tout\n";
+        std::cout << "\nL'année " << i << " vous aurez dépensé : " << res_an[i] << " € en tout\n";
     }
 }
-
-
-

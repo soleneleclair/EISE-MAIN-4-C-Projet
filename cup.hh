@@ -8,23 +8,23 @@ class Cup : public Protection
   public :
     //Constructeur
     Cup(const Protection &p);
-    //Cup(const Cup &c): Protection(c),_duree(c._duree), _prixuni(c._prixuni), _prixan(c._prixan), _prixcycle(c._prixcycle), res(c.res){};
-    
+    Cup(const Cup &c): Protection(c),_duree(c._duree), _prixuni(c._prixuni), _prixan(c._prixan), _prixcycle(c._prixcycle), res_an(c.res_an),res_cycle(c.res_cycle){};
+
     //Destructeur
     /*~Cup(){
         delete[] res_an;
         delete[] res_cycle;
     }*/
-    
+
     //Fonction
     void calcul_prix();
-    void print() const;
-  
+    virtual void print() const;
+
     //Getter
     float get_resultat_an(int i){return res_an[i];}
 
 private:
-    
+
     //int _qtecycle; techniquement deja dans protection
     int _duree = 10 ; // duree en année
     int _prixuni = 20; //prix par cup

@@ -17,10 +17,14 @@
 
 int main()
 {
+  //Utilisateur user("Leclair","Solene",2);
+  Eau eau("Braunstein","Cécile",2,1,"type1");
+  Bouteille Bottle(eau);
+  Bouteille Bottle1(Bottle);
+  std::cout << "/* message */" << Bottle1.get_resultat_annee(0) << '\n';
   affichage();
 
   std::cout << "---------------------------------------------" << std::endl;
-
 
 	Utilisateur user;
 	user.presentation();
@@ -34,9 +38,18 @@ int main()
 		bottle.print();
 		//~water();
 	}
+  else
+  {
+    Protection protec(user);
+    Lavable lav1(protec);
+    lav1.calcul_prix();
+    lav1.print();
+    Cup cup1(protec);
+    cup1.calcul_prix();
+    cup1.print();
 
-  std::cout << "---------------------------------------------" << std::endl;
-
+  }  std::cout << "---------------------------------------------" << std::endl;
+    //protec.print_protec();
 
 	return 0;
 }

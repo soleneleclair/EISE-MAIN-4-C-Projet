@@ -7,13 +7,13 @@ class Gourde : public Eau
 {
   public :
     Gourde(const Eau &e);
-    Gourde(const Gourde &g):Eau(g),_duree_de_vie(g._duree_de_vie),_prix_achat(g._prix_achat),resultat(g.resultat){};
+    //Gourde(const Gourde &g);
     //Gourde(std::size_t litre_j,std::string type,int duree_de_vie,float prix_achat);
 
     ~Gourde(){delete[] resultat;} // Destructeur
 
     void calcul();
-    void print(); //Affichage du prix chaque année
+    virtual void print(); //Affichage du prix chaque année
 
     //Getter
     float get_resultat_annee(int i){return resultat[i];}

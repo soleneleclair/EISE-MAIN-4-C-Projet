@@ -68,9 +68,11 @@ void affichage()
   SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
   int quit = 0;
   SDL_Event event;
-  SDL_Surface *graphique, *surface_titre, *surface_gourde;
-	SDL_Texture *texture_graphique, *Message, *Message2, *texture_gourde, *texture_protection;
-	SDL_Color fond = {55, 200, 55, 3};
+  SDL_Surface *graphique, *surface_titre, *surface_choix;
+  SDL_Surface *surface_input;
+	SDL_Texture *texture_graphique, *Message, *Message2, *texture_choix, *texture_protection, *Message3;
+  SDL_Color fond = {112,223,200, 50};
+	//SDL_Color fond = {181,203,168, 100};
 
 	TTF_Font *police = TTF_OpenFont("Roboto-Medium.ttf", 65);
   if(police == 0)
@@ -79,9 +81,9 @@ void affichage()
   graphique = IMG_Load("planetB.jpg");
   texture_graphique = SDL_CreateTextureFromSurface(renderer,graphique);
 
-  surface_gourde = IMG_Load("plan9.bmp");
-	texture_gourde = SDL_CreateTextureFromSurface(renderer,surface_gourde);
-  texture_protection = SDL_CreateTextureFromSurface(renderer,surface_gourde);
+  surface_choix = IMG_Load("plan9.bmp");
+	texture_choix = SDL_CreateTextureFromSurface(renderer,surface_choix);
+  texture_protection = SDL_CreateTextureFromSurface(renderer,surface_choix);
 
   surface_titre = TTF_RenderText_Solid(police, "There is no planet B", noir);
   Message = SDL_CreateTextureFromSurface(renderer, surface_titre); //converti la surface en texture
@@ -107,10 +109,9 @@ void affichage()
 								//if (nom_enabled == 1){
 								printf("%s\n",text);
 								surface_input = TTF_RenderText_Solid(police, text, noir);
-								Message3 = SDL_CreateTextureFromSurface(renderer, surface_input); //converti la surface en texture
 								//}
-                break;
-                */
+                break;*/
+
       }
     }
 		/* Etape 2: METTRE A JOUR l'ETAT DE L'APPLICATION GRAPHIQUE */
@@ -142,29 +143,40 @@ void affichage()
     SDL_Rect image_rect = { 370, 150, 250, 165 };
     SDL_RenderCopy(renderer, texture_graphique, NULL, &image_rect);
 
-		SDL_RenderCopy(renderer, texture_gourde, NULL, &gourde_rect);
+		SDL_RenderCopy(renderer, texture_choix, NULL, &gourde_rect);
     SDL_RenderCopy(renderer, texture_protection, NULL, &protection_rect);
 
-    SDL_Rect Titre_rect = { 350, 30,300,80 };
+    SDL_Rect Titre_rect = { 300, 50,400,80 };
     SDL_RenderCopy(renderer, Message, NULL, &Titre_rect);
 
+    // Message3 = SDL_CreateTextureFromSurface(renderer, surface_input); //converti la surface en texture
 		// SDL_Rect input_rect = { 350, 130,100,30 };
 		// SDL_RenderCopy(renderer, Message3, NULL, &input_rect);
 		//user.presentation_SDL(renderer,surface_titre, Message_user,police);
 
-		if (goGourde==1)// || goProtec == 1)
+		if (goGourde==1 || goProtec == 1)
 		{
-			SDL_SetRenderDrawColor(renderer, fond.r, fond.g, fond.b, fond.a);
-			SDL_RenderFillRect(renderer, &rect);
-			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-		}
-    if (goProtec == 1)
-		{
-			SDL_SetRenderDrawColor(renderer, couleurBlanche.r, couleurBlanche.g, couleurBlanche.b, couleurBlanche.a);
-			SDL_RenderFillRect(renderer, &rect);
-			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
-		}
+      SDL_SetRenderDrawColor(renderer, fond.r, fond.g, fond.b, fond.a);
+      SDL_RenderFillRect(renderer, &rect);
+
+      if (goProtec == 1)
+  		{
+        SDL_Rect Titre_rect = { 300, 50,400,50 };
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        surface_input = TTF_RenderText_Solid(police, "Protection hygienique", noir);
+        Message3 = SDL_CreateTextureFromSurface(renderer, surface_input);
+        SDL_RenderCopy(renderer, Message3, NULL, &Titre_rect);
+
+  		}
+      else{
+        SDL_Rect Titre_rect = { 450, 50,100,50 };
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        surface_input = TTF_RenderText_Solid(police, "Eau", noir);
+        Message3 = SDL_CreateTextureFromSurface(renderer, surface_input);
+        SDL_RenderCopy(renderer, Message3, NULL, &Titre_rect);
+      }
+    }
 
     SDL_RenderPresent(renderer);
 
@@ -173,9 +185,9 @@ void affichage()
 	SDL_DestroyTexture(Message2);
 	SDL_DestroyTexture(texture_graphique);
 	SDL_DestroyTexture(texture_protection);
-	SDL_DestroyTexture(texture_gourde);
+	SDL_DestroyTexture(texture_choix);
 	SDL_FreeSurface(surface_titre);
-	SDL_FreeSurface(surface_gourde);
+	SDL_FreeSurface(surface_choix);
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   SDL_Quit();

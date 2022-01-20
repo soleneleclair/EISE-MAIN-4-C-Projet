@@ -39,14 +39,13 @@ void Cup::calcul_prix(){
 
 }
 void Cup::print() const{
+    std::cout << "En utilisant que la coupe menstruelle : "<< std::endl;
     for(std::size_t i = 0; i < nb_cycle; i++){
-        std::cout << "En utilisant que la coupe menstruelle : \nAu cycle " << i << " de la première année vous aurez dépensé : " << res_cycle[i] << " € \n";
+        std::cout << "Au cycle " << i << " de la première année vous aurez dépensé : " << res_cycle[i] << " € \n";
     }
-    
+
     for(std::size_t i = 0; i < nb_annees; i++){
-        std::cout << "En utilisant que la coupe menstruelle : \nL'année " << i << " vous aurez dépensé : " << res_an[i] << " € en tout\n";
+        std::cout << "L'année " << i << " vous aurez dépensé : " << res_an[i] << " € en tout\n";
     }
 
 }
-
-

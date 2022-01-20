@@ -27,5 +27,5 @@ private:
   int _recherche;
 };
 
-void SDL_accueil(SDL_Renderer *renderer,SDL_Texture *Message,SDL_Surface  *surface_titre, TTF_Font *font);
 void affichage();
+void SDL_accueil(SDL_Renderer *renderer,SDL_Texture *Message,SDL_Surface  *surface_titre, TTF_Font *font);
