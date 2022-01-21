@@ -10,7 +10,6 @@ class Bouteille : public Eau
     //Constructeurs
     Bouteille(const Eau &e);
     Bouteille(const Bouteille &g):Eau(g),resultat(g.resultat){};
-
     ~Bouteille();// Destructeur
 
     //Getter
@@ -21,7 +20,7 @@ class Bouteille : public Eau
     void conso_CO2();
     virtual void print(); //Affichage
 
-  private:
+
     std::map<std::string, float* > resultat;
     //dictionnaire représentant les variation des dépenses d'eau minéral, d'eau de source et la conso de CO2 au cours des années
 };

@@ -1,10 +1,13 @@
 #include "jetable.hh"
 #include <iostream>
 #include <string>
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
-Jetable::Jetable(const Protection &p):Protection(p){
-//    res_an = new float [nb_annees];
-//    res_cycle = new float [nb_annees];
+
+Jetable::Jetable(const Protection &p):Protection(p){ // initialisation à 0 des différents résultats
+
     for(std::size_t i = 0; i < res_an.size(); i++)
     {
         res_an[i] = 0;
@@ -14,9 +17,8 @@ Jetable::Jetable(const Protection &p):Protection(p){
         res_cycle[i] = 0;
     }
 }
-//Cup(const Cup &c): Protection(c),_duree(c._duree), _prixuni(c._prixuni), _prixan(c._prixan), _prixcycle(c._prixcycle), res(c.res){};
 
-
+//calcul du prix pour les cycle sur 1 an et calcul sur 10 ans
 void Jetable::calcul_prix(){
     for(std::size_t i = 0; i < res_an.size(); i++) //variation dans les années (0 = la premiere année d'utilisation)
     {
@@ -27,7 +29,7 @@ void Jetable::calcul_prix(){
 
         }
     }
-    for(std::size_t i = 0; i < res_cycle.size(); i++)
+    for(std::size_t i = 0; i < res_cycle.size(); i++)// on parcourt selon les cycle ( 0 = le premier cycle )
     {
         res_cycle[i] = _prixcycle;// prix par cycle
         if (i != 0)
@@ -37,14 +39,16 @@ void Jetable::calcul_prix(){
     }
 
 }
-void Jetable::print() const{
-  std::cout << "En utilisant que des protections jetables : "<< std::endl;
+
+void Jetable::print(){
+//affichage dans le terminal des diiférentes résultats pour les serviettes jetables  selon les cycles et les années
+  std::cout << "En utilisant que des protections jetables :\n";
 
     for(std::size_t i = 0; i < nb_cycle; i++){
-        std::cout << "\nAu cycle " << i << " de la première année vous aurez dépensé : " << res_cycle[i] << " € \n";
+         std::cout << "Au cycle " << i << " de la première année vous aurez dépensé : " << res_cycle[i] << " € \n";
     }
 
     for(std::size_t i = 0; i < nb_annees; i++){
-        std::cout << "\nL'année " << i << " vous aurez dépensé : " << res_an[i] << " € en tout\n";
+        std::cout << "L'année " << i << " vous aurez dépensé : " << res_an[i] << " € en tout\n";
     }
 }

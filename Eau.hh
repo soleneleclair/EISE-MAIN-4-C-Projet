@@ -11,16 +11,15 @@ class Eau : public Utilisateur
 
 
     //Constructeurs
-    Eau(); //Constructeur par défault
+    Eau(); //Constructeur par défaut
     Eau(const Utilisateur &u);
-    Eau(const Utilisateur &u, float litre_j,std::string type):Utilisateur(u),_litre_j(litre_j){};
+    Eau(const Utilisateur &u, float litre_j):Utilisateur(u),_litre_j(litre_j){};
     Eau(std::string nom, std::string prenom, int recherche);
     Eau(std::string nom, std::string prenom, int recherche,float litre_j):Utilisateur(nom,prenom,recherche),_litre_j(litre_j){};
     Eau(const Eau &e):Utilisateur(e),_litre_j(e._litre_j){}; //Constructeur par copie
 
     //Fonction
     virtual void print() const; //Affichage
-
     //Getter
     float get_litre(){return _litre_j;}
 

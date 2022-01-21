@@ -1,6 +1,8 @@
 #include "Eau.hh"
+#include <stdio.h>
 #include <iostream>
-#include <string>
+#include <map>
+
 
 Eau::Eau():Utilisateur()
 {
@@ -24,9 +26,3 @@ void Eau::print() const
 {
 	std::cout << "Vous buvez "  << _litre_j <<" litres d'eau par jours";
 }
-
-// void Eau::fill() const
-// {
-// 	std::cout << "Combien buvez vous d'eau par jour ?" << std::endl;
-// 	std::cin >> _litre_j;
-// }

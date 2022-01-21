@@ -3,7 +3,7 @@
 #include <string>
 float eau_robinet = 0.003;
 
-Gourde::Gourde(const Eau &e):Eau(e)
+Gourde::Gourde(const Eau &e):Eau(e) // initialisation des résultats à 0
 {
   resultat = new float [nb_annees];
   for(std::size_t i = 0; i < nb_annees; i++)
@@ -25,6 +25,7 @@ void Gourde::calcul()
 }
 
 void Gourde::print(){
+  // affichage des resultats dans le terminal
   calcul();
   for(std::size_t i = 0; i < nb_annees; i++)
     std::cout << "L'année " << i << " il a dépensé : " << resultat[i] << " € \n";
