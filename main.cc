@@ -48,11 +48,11 @@ int main()
 
   affichage(user1);
   //affichage_protect(user1);
-  Utilisateur user;
 
-  user.presentation();
   std::cout << "---------------------------------------------" << std::endl;
 
+  /*Utilisateur user;
+  user.presentation();
 	if (user.get_recherche()==2)
 	{
 		Eau water(user);
@@ -71,7 +71,7 @@ int main()
     cup1.calcul_prix();
     cup1.print();
 
-  }
+  }*/
 
 	return 0;
 }
@@ -128,10 +128,12 @@ void affichage(Utilisateur &user)
 		SDL_Rect protection_rect = {600,400,150,150};
 		if ((mx>=gourde_rect.x) && (mx<=(gourde_rect.x+gourde_rect.w)) && (my>=gourde_rect.y) && (my<=(gourde_rect.y+gourde_rect.h))){
       affichage_eau(user);
+      user._recherche = 2;
       quit =1;
     }
 		if ((mx>=protection_rect.x) && (mx<=(protection_rect.x+protection_rect.w)) && (my>=protection_rect.y) && (my<=(protection_rect.y+protection_rect.h))){
       affichage_protect(user);
+      user._recherche = 1;
       quit =1;
     }
 
