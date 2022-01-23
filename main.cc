@@ -94,7 +94,7 @@ void affichage(Utilisateur &user)
   if(police == 0)
     std::cout << "/* Error : police */" << '\n';
 
-  graphique = IMG_Load("planetB.jpg");
+  graphique = IMG_Load("Images/planetB.jpg");
   texture_graphique = SDL_CreateTextureFromSurface(renderer,graphique);
 
   surface_choix = IMG_Load("Images/bouteille.jpg");
@@ -128,12 +128,10 @@ void affichage(Utilisateur &user)
 		SDL_Rect protection_rect = {600,400,150,150};
 		if ((mx>=gourde_rect.x) && (mx<=(gourde_rect.x+gourde_rect.w)) && (my>=gourde_rect.y) && (my<=(gourde_rect.y+gourde_rect.h))){
       affichage_eau(user);
-      user._recherche = 2;
       quit =1;
     }
 		if ((mx>=protection_rect.x) && (mx<=(protection_rect.x+protection_rect.w)) && (my>=protection_rect.y) && (my<=(protection_rect.y+protection_rect.h))){
       affichage_protect(user);
-      user._recherche = 1;
       quit =1;
     }
 
@@ -185,6 +183,8 @@ int affichage_eau(Utilisateur &user){
 // Calcul des résultats
   gourde.calcul();
   bottle.calcul_prix();
+  gourde.print();
+  bottle.print();
 
 // création de la fenêtre SDL
   int statut = EXIT_FAILURE;
@@ -192,8 +192,7 @@ int affichage_eau(Utilisateur &user){
       fprintf(stderr, "Erreur SDL_Init : %s.", SDL_GetError());
   else
   {
-      SDL_Window *window2 = SDL_CreateWindow("Prix de l'eau en fonction des années et du moyen de consommation", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-                                            W, H, SDL_WINDOW_SHOWN);
+      SDL_Window *window2 = SDL_CreateWindow("Prix de l'eau en fonction des années et du moyen de consommation", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,W, H, SDL_WINDOW_SHOWN);
       if(!window2)
           fprintf(stderr, "Erreur SDL_CreateWindow : %s.", SDL_GetError());
       else
